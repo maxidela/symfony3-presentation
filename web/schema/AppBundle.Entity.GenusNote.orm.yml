@@ -1,0 +1,58 @@
+AppBundle\Entity\GenusNote:
+    type: entity
+    table: genus_note
+    repositoryClass: AppBundle\Repository\GenusNoteRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+        userAvatarFilename:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: user_avatar_filename
+        note:
+            type: text
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+        createdAt:
+            type: datetime
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: created_at
+    manyToOne:
+        genus:
+            targetEntity: AppBundle\Entity\Genus
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: notes
+            joinColumns:
+                genus_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

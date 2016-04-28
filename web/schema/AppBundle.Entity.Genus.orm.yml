@@ -1,0 +1,66 @@
+AppBundle\Entity\Genus:
+    type: entity
+    table: genus
+    repositoryClass: AppBundle\Repository\GenusRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+        subFamily:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: sub_family
+        speciesCount:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: species_count
+        funFact:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: true
+            precision: 0
+            column: fun_fact
+        isPublished:
+            type: boolean
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            column: is_published
+    oneToMany:
+        notes:
+            targetEntity: AppBundle\Entity\GenusNote
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: genus
+            inversedBy: null
+            orphanRemoval: false
+            orderBy:
+                createdAt: DESC
+    lifecycleCallbacks: {  }
